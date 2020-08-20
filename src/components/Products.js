@@ -4,7 +4,7 @@ import { FaStar } from 'react-icons/fa';
 export default class Products extends Component {
 	render() {
 		return (
-			<div>
+			<div className="products-container">
 				<ul className="products">
 					{this.props.products.map(product => (
 						<li key={product.id}>

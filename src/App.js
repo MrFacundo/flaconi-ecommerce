@@ -27,7 +27,7 @@ class App extends React.Component {
               return b.price - a.price
           case 'AZ':
             return a.name.localeCompare(b.name)
-            case 'ZA':
+          case 'ZA':
               return b.name.localeCompare(a.name)
           default:
             return a.id - b.id
@@ -88,25 +88,3 @@ class App extends React.Component {
 }
 
 export default App;
-
-
-// sortProducts= (event)=> {
-//   const sort = event.target.value;
-//   console.log(event.target.value)
-//   this.setState((state) => ({
-//     sort: sort,
-//     products: this.state.products.slice().sort((a,b) =>(
-//       sort === 'highest'
-//       ? a.price < b.price
-//         ? 1
-//         :-1
-//       : sort === 'lowest'
-//       ? b.price < a.price
-//         ? 1
-//         : 1
-//       : b.id > a.id
-//       ? 1
-//       :-1
-//     ))
-//   })); 
-// }

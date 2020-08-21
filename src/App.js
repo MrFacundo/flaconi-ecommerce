@@ -71,7 +71,6 @@ class App extends React.Component {
               ></Filter>
               <Products products={this.state.products}></Products>
             </div>
-            {/* <div className="sidebar">Cart Items</div> */} 
           </div>
         </main>
         <footer>

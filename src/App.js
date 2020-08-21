@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import data from "./data.json";
 import Products from './components/Products';
 import Filter from './components/Filter';
+import Pagination from './components/Pagination';
 
 
 class App extends React.Component {
@@ -12,8 +13,13 @@ class App extends React.Component {
       products: data,
       type: "",
       sort: "",
+      currentPage: 1,
+      setCurrentPage: "",
+      postsPerPage: 5,
+      setPostsPerPage: 10
     };
   }
+
   sortProducts= (event)=> {
     const sort = event.target.value;
     console.log(event.target.value)
@@ -55,7 +61,17 @@ class App extends React.Component {
   }
 
   render(){
-    return (
+
+    // Get current products
+    const indexOfLastPost = this.state.currentPage * 10;
+		const indexOfFirstPost = indexOfLastPost - this.state.postsPerPage 
+    const currentPosts = this.state.products.slice(indexOfFirstPost, indexOfLastPost);
+    
+    // Change page
+    const paginate = pageNumber => this.state.setCurrentPage({currentPage: pageNumber});
+
+
+      return (
       <div className="grid-container">
         <header>
           <a href="/">Flaconi ecommerce</a>
@@ -69,9 +85,12 @@ class App extends React.Component {
               filterProducts={this.filterProducts}
               sortProducts={this.sortProducts}  
               ></Filter>
-              <Products products={this.state.products}></Products>
+              <Products products={currentPosts}></Products>
             </div>
-            {/* <div className="sidebar">Cart Items</div> */} 
+            <Pagination 
+              postsPerPage={this.state.postsPerPage}
+              totalPosts={this.state.products.length}
+              paginate={paginate}/>
           </div>
         </main>
         <footer>

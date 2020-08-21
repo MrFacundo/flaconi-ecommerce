@@ -36,9 +36,6 @@ class App extends React.Component {
     }))
   }
 
-
-
-
   filterProducts = (event) => {
     if (event.target.value === "") {
       this.setState({ type: event.target.value, product: data});
@@ -70,9 +67,7 @@ class App extends React.Component {
               type={this.state.type}
               sort={this.state.sort}
               filterProducts={this.filterProducts}
-              sortProducts={this.sortProducts}
-
-              
+              sortProducts={this.sortProducts}  
               ></Filter>
               <Products products={this.state.products}></Products>
             </div>

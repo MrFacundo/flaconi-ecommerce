@@ -10,6 +10,7 @@ class App extends React.Component {
     super();
     this.state = {
       products: data,
+      brand: "",
       type: "",
       sort: "",
     };
@@ -42,13 +43,15 @@ class App extends React.Component {
     } else if ((event.target.value === "All")) {
       this.setState({
         type: event.target.value,
+        brand: event.target.value,
         products: data.map((product) => product),
       });
     } else {
       this.setState({
+        brand: event.target.value,
         type: event.target.value,
         products: data.filter(
-          (product) => product.type.indexOf(event.target.value) >= 0
+          (product) => product.brand === event.target.value || product.type === event.target.value
         ),
       });
     }
@@ -63,7 +66,10 @@ class App extends React.Component {
         <main>
           <div className="content">
             <div className="main">
-              <Filter count={this.state.products.length}
+              <Filter 
+              count={this.state.products.length}
+              products={data}
+              brand={this.state.brand}
               type={this.state.type}
               sort={this.state.sort}
               filterProducts={this.filterProducts}

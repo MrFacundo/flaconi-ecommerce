@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
+import React from 'react';
 import './App.css';
 import data from "./data.json";
 import Products from './components/Products';
@@ -14,9 +16,10 @@ class App extends React.Component {
       type: "",
       sort: "",
       currentPage: 1,
+      previousPage: "",
+      nextPage: "",
       setCurrentPage: "",
-      postsPerPage: 5,
-      setPostsPerPage: 10
+      productsPerPage: 10,
     };
   }
 
@@ -63,12 +66,15 @@ class App extends React.Component {
   render(){
 
     // Get current products
-    const indexOfLastPost = this.state.currentPage * 10;
-		const indexOfFirstPost = indexOfLastPost - this.state.postsPerPage 
-    const currentPosts = this.state.products.slice(indexOfFirstPost, indexOfLastPost);
+    const indexOfLastProduct = this.state.currentPage * this.state.productsPerPage;
+		const indexOfFirstProduct = indexOfLastProduct - this.state.productsPerPage 
+    const currentProducts = this.state.products.slice(indexOfFirstProduct, indexOfLastProduct);
     
     // Change page
-    const paginate = pageNumber => this.state.setCurrentPage({currentPage: pageNumber});
+    const paginate = pageNumber => this.setState({currentPage: pageNumber});
+    const nextPage = () => this.setState({currentPage: this.state.currentPage + 1});
+    const prevPage = () => this.setState({currentPage: this.state.currentPage - 1});
+
 
 
       return (
@@ -85,13 +91,17 @@ class App extends React.Component {
               filterProducts={this.filterProducts}
               sortProducts={this.sortProducts}  
               ></Filter>
-              <Products products={currentPosts}></Products>
+              <Products products={currentProducts}></Products>
             </div>
-            <Pagination 
-              postsPerPage={this.state.postsPerPage}
-              totalPosts={this.state.products.length}
-              paginate={paginate}/>
           </div>
+            <Pagination 
+              productsPerPage={this.state.productsPerPage}
+              totalProducts={this.state.products.length}
+              paginate={paginate}
+              nextPage={nextPage}
+              previousPage={prevPage}
+              
+              />
         </main>
         <footer>
           Footer

@@ -1,25 +1,34 @@
-import React from 'react';
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import React, { Component } from 'react'
 
-const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
-  const pageNumbers = [];
+export class Pagination extends Component {
+    render() {
+        const { productsPerPage, totalProducts, paginate, nextPage, prevPage } = this.props;
 
-  for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
-    pageNumbers.push(i);
-  }
+        const pageNumbers = [];
 
-  return (
-    <nav>
-      <ul className='pagination'>
-        {pageNumbers.map(number => (
-          <li key={number} className='page-item'>
-            <a onClick={() => paginate(number)} href='!#' className='page-link'>
-              {number}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </nav>
-  );
-};
+        for (let i = 1; i <= Math.ceil(totalProducts / productsPerPage); i++) {
+            pageNumbers.push(i);
+        }
 
-export default Pagination;
+        return (
+            <nav>
+                <ul className="pagination justify-content-center">
+                    <li className="page-item">
+                        <a className="page-link" href="#" onClick={() => prevPage()}>Previous</a>
+                    </li>
+                    {pageNumbers.map(num => (
+                        <li className="page-item" key={num}>
+                            <a onClick={() => paginate(num)} href="#" className="page-link">{num}</a>
+                        </li>
+                    ))}
+                    <li className="page-item">
+                        <a className="page-link" href="#" onClick={() => nextPage()}>Next</a>
+                    </li>
+                </ul>
+            </nav>
+        )
+    }
+}
+
+export default Pagination

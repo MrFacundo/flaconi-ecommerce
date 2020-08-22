@@ -4,9 +4,6 @@ import { FaStar } from 'react-icons/fa';
 export default class Products extends Component {
 
 	render() {
-
-
-
 		return (
 			<div className="products-container">
 					<ul className="products">

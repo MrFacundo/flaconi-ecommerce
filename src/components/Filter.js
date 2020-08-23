@@ -10,17 +10,7 @@ export default class filter extends Component {
 
 		return (
 			<div className="filter">
-				<div className="filter-result">{this.props.count} Products</div>
-				<div className="filter-sort">
-					Sort by {" "}
-					<select value={this.props.sort} onChange={this.props.sortProducts}>
-						<option value=""></option>	
-						<option value="lowest">Lowest price</option>
-						<option value="highest">Highest price</option>
-						<option value="AZ">Name AZ</option>
-						<option value="ZA">Name ZA</option>
-					</select>
-				</div>
+
 				<div className="filter-type">
 					<b>Category {" "}</b>				
 					<ul value={this.props.type} onClick={this.props.filterProducts}>
@@ -38,6 +28,37 @@ export default class filter extends Component {
 							<button  value={brand}>{brand}</button >
 							)}
 					</ul>
+				</div>
+				<label htmlFor="toggle">Filter</label>
+				<input type="checkbox" id="toggle"/>
+				<div className="filter-toggle">
+					<div className="filter-dropdown">
+						Category {" "}
+						<select value={this.props.type} onChange={this.props.filterProducts}>
+							<option value="All">All</option>
+								{categories.map(type =>
+									<option value={type}>{type}</option >
+								)}
+						</select>
+						Brand {" "}
+						<select value={this.props.brand} onChange={this.props.filterProducts}>
+							<option value="All">All</option>
+								{brands.map(brand =>
+									<option value={brand}>{brand}</option >
+								)}
+						</select>
+					</div>
+				</div>
+				<div className="filter-sort">
+					Sort by {" "}
+					<select value={this.props.sort} onChange={this.props.sortProducts}>
+						<option value=""></option>	
+						<option value="lowest">Lowest price</option>
+						<option value="highest">Highest price</option>
+						<option value="AZ">Name AZ</option>
+						<option value="ZA">Name ZA</option>
+					</select>
+					<div className="filter-result">{this.props.count} Products</div>
 				</div>
 			</div>
 

@@ -9,7 +9,7 @@ export default class Products extends Component {
 					<ul className="products">
 						{this.props.products.map(product => (
 							<li key={product.id}>
-									<div className="product">
+									<div>
 										<a href={'#' + product.id}>
 											<img src={product.image} alt={product.name}></img>
 											<p><b>{product.brand}</b></p>

@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Alata&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Alata&display=swap");
 
-html{
+html {
   font-size: 62.5%;
   box-sizing: border-box;
 }
@@ -11,22 +11,27 @@ body,
   margin: 0;
 }
 
-body, input, select, textarea, button {
+body,
+input,
+select,
+textarea,
+button {
   font-size: 1.4rem;
-  font-family: 'Alata', sans-serif;
+  font-family: "Alata", sans-serif;
 }
 
 .grid-container {
   display: grid;
-  grid-template-areas: "header"
-  "main"
-  "footer";
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
   grid-template-rows: 5rem 1fr 5rem;
   grid-template-columns: 1fr;
   height: 100%;
 }
 
-a{
+a {
   color: black;
   text-decoration: none;
 }
@@ -37,7 +42,7 @@ header {
   color: white;
   display: flex;
   align-items: center;
-  padding: .5rem;
+  padding: 0.5rem;
 }
 
 header a {
@@ -45,7 +50,7 @@ header a {
 }
 
 footer {
-  grid-area:footer;
+  grid-area: footer;
   background-color: #203040;
   color: white;
   display: flex;
@@ -53,19 +58,15 @@ footer {
   align-items: center;
 }
 
-.content {
-  display: flex;
-  flex-wrap: wrap;
-}
-
 .main {
   display: flex;
 }
 
-/* products */ 
+/* products */
 
 .products-container {
   display: flex;
+  flex: auto;
   justify-content: center;
 }
 
@@ -80,23 +81,16 @@ footer {
 }
 
 .products li {
-  flex: 0 1 25rem;
+  flex: 0 1 28rem;
   height: 41rem;
-  padding: 3rem 2rem 2rem; 
+  padding: 3rem 3rem 2rem;
   border: 0.1rem transparent solid;
-  align-items: center; 
+  align-items: center;
+  text-align: center;
 }
 
 .products li:hover {
   border: 0.1rem #bbbbbb solid;
-}
-
-.product {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-  text-align: center;
 }
 
 .product img {
@@ -104,29 +98,22 @@ footer {
   max-height: 30rem;
 }
 
-.product-price {
-  display: flex;
-  align-items: center;
-}
-
-.product-price div {
-  flex: 1;
-}
-
 .product-type {
-  color: #616060;
+  color: #414141;
 }
-
-
 
 /* filters */
 
-.filter{
+.filter {
   flex-direction: column;
   width: 20rem;
-  padding: 1rem;
   margin: 5rem;
 }
+
+.filter-result {
+  color: #414141;
+}
+
 .filter button {
   padding: 1rem 0;
   text-align: left;
@@ -146,63 +133,97 @@ footer {
   border: 0.1rem #c0c0c0 solid;
 }
 
-.filter-type, .filter-brand {
+.filter-type,
+.filter-brand {
   margin-top: 2rem;
   padding-bottom: 2rem;
   border-bottom: 0.1rem #c0c0c0 solid;
-
 }
 
-@media screen and (max-width: 800px) {
-  .products {
-    max-width: 700px;
-  }
-
-  .product {
-    max-width: 25rem;
-    max-height: 25rem;;
-    font-size: 1rem;
-  }
-
-  .products li {
-    flex: 0 1 20rem;
-    height: 35rem;
-    padding: 0rem;
-  }
-
-  .product img{
-   max-width: 20rem;
-   max-height: 20rem;   
- }
+.filter-dropdown {
+  display: none;
 }
 
-@media screen and (max-width: 950px) {
+/* media queries */
 
+@media screen and (max-width: 1024px) {
   .products li {
     flex: 0 1 20rem;
-    height: 35rem;
-    padding: 0rem;
   }
 
-  .product img{
-   max-width: 15rem;
-   max-height: 15rem;   
- }
+  .products img {
+    max-width: 20rem;
+  }
 
- .filter {
-   margin-right: 0;
- }
+  .filter {
+    margin-right: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .products li {
+    padding: 0rem;
+    height: 38rem;
+  }
+
+  .products img {
+    max-width: 15rem;
+  }
 }
 
 @media screen and (max-width: 680px) {
-
   .main {
     flex-direction: column;
   }
 
-
   .products li {
-    flex: 0 1 15rem;
+    flex: 0 1 20rem;
+    height: 33rem;
+    padding: 2rem;
   }
 
+  .filter-type,
+  .filter-brand {
+    display: none;
+  }
+
+  .filter {
+    width: 100%;
+    margin: 0rem;
+    box-sizing: border-box;
+    padding: 2rem 0 0 0;
+    text-align: center;
+    display: flex;
+    align-items: center;
+  }
+
+  .filter-dropdown {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    border-bottom: 0.1rem #c0c0c0 solid;
+  }
+
+  .filter-dropdown p {
+    padding: 0 1rem;
+  }
+
+  .filter-sort {
+    text-align: center;
+  }
+  option {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 485px) {
+  .products li {
+    flex: 0 1 16rem;
+    padding: 0rem;
+    padding-top: 2rem;
+  }
+
+  .products img {
+    max-width: 10rem;
+  }
 }

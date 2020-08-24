@@ -1,0 +1,67 @@
+header {
+  padding: 0 5rem;
+  justify-content: space-between;
+  height: 12rem;
+  background-color: #203040;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+.hamburger {
+  background-image: url("../images/hamburger-icon.svg");
+  height: 4rem;
+  width: 8rem;
+}
+.logo {
+  background-image: url("../images/flaconi-logo.svg");
+  height: 7rem;
+  width: 30rem;
+}
+
+.hamburger,
+.logo {
+  background-repeat: no-repeat;
+  filter: invert(100%);
+}
+
+header ul {
+  justify-content: space-between;
+  display: flex;
+  width: 15rem;
+  list-style-type: none;
+  font-size: 3rem;
+  padding-left: 3rem;
+}
+
+@media screen and (max-width: 680px) {
+  header {
+    padding: 0 3rem;
+  }
+
+  header ul {
+    width: 10rem;
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 485px) {
+  .hamburger,
+  .logo,
+  header ul {
+    position: absolute;
+  }
+
+  .hamburger {
+    top: 7rem;
+  }
+  .logo {
+    width: 12rem;
+    left: 3rem;
+  }
+
+  header ul {
+    top: 5rem;
+    right: 2rem;
+  }
+}

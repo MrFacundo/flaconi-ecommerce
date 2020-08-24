@@ -3,6 +3,7 @@ import "./App.css";
 import data from "./data.json";
 import Products from "./components/Products";
 import Filter from "./components/Filter";
+import Header from "./components/Header";
 
 class App extends React.Component {
   constructor() {
@@ -61,9 +62,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="grid-container">
-        <header>
-          <a href="/">Flaconi ecommerce</a>
-        </header>
+        <Header></Header>
         <main>
           <div className="content">
             <div className="main">

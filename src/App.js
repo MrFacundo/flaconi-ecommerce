@@ -4,6 +4,7 @@ import data from "./data.json";
 import Products from "./components/Products";
 import Filter from "./components/Filter";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 class App extends React.Component {
   constructor() {
@@ -79,7 +80,7 @@ class App extends React.Component {
             </div>
           </div>
         </main>
-        <footer>Footer</footer>
+        <Footer />
       </div>
     );
   }

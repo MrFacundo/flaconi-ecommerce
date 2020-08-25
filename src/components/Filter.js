@@ -1,4 +1,4 @@
-/* eslint-disbutton ble no-unused-vars */
+import "./Filter.css";
 import React, { Component } from "react";
 
 export default class filter extends Component {

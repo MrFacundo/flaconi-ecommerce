@@ -18,9 +18,7 @@ class App extends React.Component {
   }
   sortProducts = (event) => {
     const sort = event.target.value;
-    console.log(event.target.value);
     this.setState((state) => ({
-      sort: sort,
       products: this.state.products.slice().sort((a, b) => {
         switch (sort) {
           case "lowest":
@@ -40,12 +38,12 @@ class App extends React.Component {
 
   filterProducts = (event) => {
     if (event.target.value === "") {
-      this.setState({ type: event.target.value, product: data });
+      this.setState({ type: event.target.value, products: data });
     } else if (event.target.value === "All") {
       this.setState({
         type: event.target.value,
         brand: event.target.value,
-        products: data.map((product) => product),
+        products: data,
       });
     } else {
       this.setState({

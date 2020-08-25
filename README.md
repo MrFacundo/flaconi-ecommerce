@@ -8,15 +8,15 @@ https://github.com/Flaconi/coding-challenges/blob/master/frontend-engineer/catal
 - add brand filter [X]
 - combine filters []
 - clean and order css []
-- Design Header [X] and footer []
+- sticky div for filters [X] not cool
+- favicom []
+- Design Header [X] and footer [X]
 - pagination []
 - Docker []
 - write some basic tests for your JavaScript code using Jest []
 - create simple GraphQL server to get the products []
 - favicom []
 
-
 bugs
 
 - .filter margin not working [X]
-

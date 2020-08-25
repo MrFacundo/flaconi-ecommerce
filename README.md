@@ -12,8 +12,10 @@ https://github.com/Flaconi/coding-challenges/blob/master/frontend-engineer/catal
 - favicom []
 - Design Header [X] and footer [X]
 - pagination []
+- Docker []
 - write some basic tests for your JavaScript code using Jest []
 - create simple GraphQL server to get the products []
+- favicom []
 
 bugs
 

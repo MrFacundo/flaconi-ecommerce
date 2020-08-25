@@ -10,7 +10,7 @@ https://github.com/Flaconi/coding-challenges/blob/master/frontend-engineer/catal
 - clean and order css []
 - sticky div for filters [X] not cool
 - favicom []
-- Design Header [X] and footer []
+- Design Header [X] and footer [X]
 - pagination []
 - write some basic tests for your JavaScript code using Jest []
 - create simple GraphQL server to get the products []

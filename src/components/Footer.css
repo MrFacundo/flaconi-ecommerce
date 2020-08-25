@@ -1,0 +1,23 @@
+footer {
+  grid-area: footer;
+  background-color: #203040;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+  margin-top: 2rem;
+}
+
+footer ul {
+  margin: 2rem 0 0;
+  justify-content: space-between;
+  display: flex;
+  width: 20rem;
+  list-style-type: none;
+  font-size: 2rem;
+}
+
+footer p {
+  color: rgb(201, 201, 201);
+}

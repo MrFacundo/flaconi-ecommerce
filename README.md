@@ -15,3 +15,8 @@ https://github.com/Flaconi/coding-challenges/blob/master/frontend-engineer/catal
 - create simple GraphQL server to get the products []
 - favicom []
 
+
+bugs
+
+- .filter margin not working [X]
+

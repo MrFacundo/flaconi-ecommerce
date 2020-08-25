@@ -31,8 +31,10 @@ export default class filter extends Component {
           <b>Category </b>
           <ul value={this.props.type} onClick={this.props.filterProducts}>
             <button value="All">All</button>
-            {categories.map((brand) => (
-              <button value={brand}>{brand}</button>
+            {categories.map((brand, index) => (
+              <button value={brand} key={index}>
+                {brand}
+              </button>
             ))}
           </ul>
         </div>
@@ -40,8 +42,10 @@ export default class filter extends Component {
           <b>Brand </b>
           <ul value={this.props.brand} onClick={this.props.filterProducts}>
             <button value="All">All</button>
-            {brands.map((brand) => (
-              <button value={brand}>{brand}</button>
+            {brands.map((brand, index) => (
+              <button value={brand} key={index}>
+                {brand}
+              </button>
             ))}
           </ul>
         </div>
@@ -53,8 +57,10 @@ export default class filter extends Component {
               onChange={this.props.filterProducts}
             >
               <option value="All">All</option>
-              {categories.map((type) => (
-                <option value={type}>{type}</option>
+              {categories.map((type, index) => (
+                <option value={type} key={index}>
+                  {type}
+                </option>
               ))}
             </select>
           </p>
@@ -65,8 +71,10 @@ export default class filter extends Component {
               onChange={this.props.filterProducts}
             >
               <option value="All">All</option>
-              {brands.map((brand) => (
-                <option value={brand}>{brand}</option>
+              {brands.map((brand, index) => (
+                <option value={brand} key={index}>
+                  {brand}
+                </option>
               ))}
             </select>
           </p>

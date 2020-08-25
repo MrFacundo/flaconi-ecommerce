@@ -31,6 +31,7 @@ export default class Products extends Component {
                               ? "##000000"
                               : "#e4e5e9"
                           }
+                          key={i}
                         />
                       );
                     })}

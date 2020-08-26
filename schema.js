@@ -1,3 +1,5 @@
+const axios = require("axios");
+
 const {
   GraphQLObjectType,
   GraphQLInt,
@@ -32,7 +34,7 @@ const RootQuery = new GraphQLObjectType({
       resolve(parent, args) {
         return axios
           .get(
-            "https://raw.githubusercontent.com/bradtraversy/spacex_launch_stats/master/schema.js"
+            "https://raw.githubusercontent.com/Flaconi/coding-challenges/master/frontend-engineer/resources/productlist.json"
           )
           .then((res) => res.data);
       },

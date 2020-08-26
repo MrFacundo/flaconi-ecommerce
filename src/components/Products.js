@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { FaStar } from "react-icons/fa";
+import StarRatings from "react-star-ratings";
 
 export default class Products extends Component {
   render() {
@@ -19,22 +19,13 @@ export default class Products extends Component {
                   </p>
                   <p className="product-type">{product.type}</p>
                   <div>
-                    {[...Array(5)].map((star, i) => {
-                      const ratingValue = i + 1;
-                      const productRating = Math.round(product.rating / 20);
-                      return (
-                        <FaStar
-                          className="star"
-                          size={10}
-                          color={
-                            ratingValue <= productRating
-                              ? "##000000"
-                              : "#e4e5e9"
-                          }
-                          key={i}
-                        />
-                      );
-                    })}
+                    <StarRatings
+	                  rating={product.rating / 20}
+	                  starRatedColor="black"
+	                  numberOfStars={5}
+                      starDimension="10px"	     
+                      starSpacing="1px"
+	                />                  
                   </div>
                   <div>
                     <div>

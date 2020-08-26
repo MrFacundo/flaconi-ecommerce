@@ -1,5 +1,3 @@
-const axios = require("axios");
-
 const {
   GraphQLObjectType,
   GraphQLInt,
@@ -19,9 +17,9 @@ const ProductType = new GraphQLObjectType({
     brand: { type: GraphQLString },
     type: { type: GraphQLString },
     image: { type: GraphQLString },
-    price: { type: GraphQLInt },
+    price: { type: GraphQLString },
     size: { type: GraphQLString },
-    rating: { type: GraphQLInt },
+    rating: { type: GraphQLString },
   }),
 });
 
@@ -34,7 +32,7 @@ const RootQuery = new GraphQLObjectType({
       resolve(parent, args) {
         return axios
           .get(
-            "https://raw.githubusercontent.com/Flaconi/coding-challenges/master/frontend-engineer/resources/productlist.json"
+            "https://raw.githubusercontent.com/bradtraversy/spacex_launch_stats/master/schema.js"
           )
           .then((res) => res.data);
       },

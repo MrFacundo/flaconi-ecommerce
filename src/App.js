@@ -36,27 +36,61 @@ class App extends React.Component {
     }));
   };
 
-  filterProducts = (event) => {
-    if (event.target.value === "") {
-      this.setState({ type: event.target.value, products: data });
-    } else if (event.target.value === "All") {
+  filterProductsByBrand = (event) => {
+    if (event.target.value === "All") {
       this.setState({
-        type: event.target.value,
         brand: event.target.value,
-        products: data,
+        products: data.filter(
+          (product) =>{
+	    	if (this.state.type && (this.state.type !=="" && this.state.type !=="All")){
+	    	  return product.type === this.state.type
+	        }
+	        return true;
+   	      })
       });
     } else {
       this.setState({
         brand: event.target.value,
-        type: event.target.value,
         products: data.filter(
-          (product) =>
-            product.brand === event.target.value ||
-            product.type === event.target.value
-        ),
+  	      (product) => {
+  		    if (this.state.type && (this.state.type !=="" && this.state.type !=="All")){
+  		      return product.type === this.state.type && product.brand === event.target.value;   
+  		    }
+  		    return product.brand === event.target.value;
+  	      }),
       });
     }
   };
+  
+  filterProductsByType = (event) => {
+	    if (event.target.value === "All") {
+	      this.setState({ type: event.target.value, 
+	    	  products: data.filter(
+    	          (product) =>{
+	    	          if (this.state.brand && (this.state.brand !=="" && this.state.brand !=="All")){
+	    	        	  return product.brand === this.state.brand
+	    	          }
+	    	          return true;
+    	          }
+	  	      ) 
+	      });
+	    } else {
+	      this.setState({
+	        type: event.target.value,
+	        products: data.filter(
+	          (product) => {
+		          if (this.state.brand && (this.state.brand !=="" && this.state.brand !=="All")){
+		        	  return product.brand === this.state.brand && product.type === event.target.value;   
+		          }
+		          return product.type === event.target.value;
+	          }
+	        ),
+	      });
+	    }
+	    
+	    event.target.className = "active"
+	  };
+
 
   render() {
     return (
@@ -71,7 +105,8 @@ class App extends React.Component {
                 brand={this.state.brand}
                 type={this.state.type}
                 sort={this.state.sort}
-                filterProducts={this.filterProducts}
+                filterProductsByBrand={this.filterProductsByBrand}
+                filterProductsByType={this.filterProductsByType}
                 sortProducts={this.sortProducts}
               ></Filter>
               <Products products={this.state.products}></Products>

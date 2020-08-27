@@ -29,21 +29,27 @@ export default class filter extends Component {
         </div>
         <div className="filter-type">
           <b>Category </b>
-          <ul value={this.props.type} onClick={this.props.filterProducts}>
-            <button value="All">All</button>
-            {categories.map((brand, index) => (
-              <button value={brand} key={index}>
-                {brand}
+          <ul value={this.props.type} onClick={this.props.filterProductsByType}>
+            <button value="All" 
+            	className={`${this.props.type === '' || this.props.type === 'All'? 'active':''}` } 
+            	>All</button>
+            {categories.map((type, index) => (
+              <button value={type} key={(index+type)} 
+                className={`${this.props.type === type? 'active':''}` }>
+                {type}
               </button>
             ))}
           </ul>
         </div>
         <div className="filter-brand">
           <b>Brand </b>
-          <ul value={this.props.brand} onClick={this.props.filterProducts}>
-            <button value="All">All</button>
+          <ul value={this.props.brand} onClick={this.props.filterProductsByBrand}>
+            <button value="All" 
+            	className={`${this.props.brand === '' || this.props.brand === 'All'? 'active':''}` }
+            	>All</button>
             {brands.map((brand, index) => (
-              <button value={brand} key={index}>
+              <button value={brand} key={(index+brand)} 
+          	    className={`${this.props.brand === brand? 'active':''}` }>
                 {brand}
               </button>
             ))}
@@ -54,7 +60,7 @@ export default class filter extends Component {
             Category {"  "}
             <select
               value={this.props.type}
-              onChange={this.props.filterProducts}
+              onChange={this.props.filterProductsByType}
             >
               <option value="All">All</option>
               {categories.map((type, index) => (
@@ -68,7 +74,7 @@ export default class filter extends Component {
             Brand {"  "}
             <select
               value={this.props.brand}
-              onChange={this.props.filterProducts}
+              onChange={this.props.filterProductsByBrand}
             >
               <option value="All">All</option>
               {brands.map((brand, index) => (

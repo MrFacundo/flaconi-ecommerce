@@ -27,6 +27,11 @@
   border: 0.1rem #c0c0c0 solid;
 }
 
+.filter button.active{
+  background-color: #666;
+  color: white;
+}
+
 .filter-type,
 .filter-brand {
   margin-top: 2rem;
@@ -37,6 +42,7 @@
 .filter-dropdown {
   display: none;
 }
+
 
 /* media queries */
 

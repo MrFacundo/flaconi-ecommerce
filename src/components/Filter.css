@@ -9,9 +9,9 @@
 }
 
 .filter button {
-  padding: 1rem 0;
+  padding: 1rem;
   text-align: left;
-  width: 20rem;
+  width: 17rem;
   background-color: white;
   border: 0.1rem transparent solid;
 }
